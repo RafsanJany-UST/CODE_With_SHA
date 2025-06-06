@@ -1,0 +1,73 @@
+=== AGE_GROUP Classification Pipeline Report ===
+===============================================
+
+Step 1 - Load & Merge Datasets:
+Merged dataframe shape: (200, 80)
+
+Step 2 - AGE_GROUP Binning:
+AGE_GROUP
+70-79    62
+60-69    56
+50-59    51
+80+      18
+Name: count, dtype: int64
+
+Step 3 - Feature Preparation:
+Selected 65 numerical features.
+
+Step 4 - Logistic Regression Training:
+Accuracy: 0.3860
+F1 Score (macro): 0.3492
+
+Step 4 - Random Forest Training:
+Accuracy: 0.3158
+F1 Score (macro): 0.2224
+
+Step 4 - XGBoost Training:
+Accuracy: 0.4211
+F1 Score (macro): 0.3366
+
+Step 5 - SHAP Explainability:
+Top 5 SHAP Features: ['BRMC', 'ICWRA–ICWLL', 'FFMI', 'TBW', 'GLUC']
+
+=== Step 6 - Detailed Feature Progression & Correlation Analysis ===
+Top 5 Features: ['ICWRA–ICWLL', 'FFMI', 'RAMC', 'LLFATTHICK', 'BRMC']
+
+
+Feature: ICWRA–ICWLL
+- Correlation with AGE: r = -0.15 (p = 0.0355)
+- Kruskal-Wallis p-value across AGE_GROUPs: p = 0.0061
+- Median value varies across AGE_GROUPs.
+- Interpretation: Weak or complex correlation → may reflect non-linear aging effects.
+
+Feature: FFMI
+- Correlation with AGE: r = 0.01 (p = 0.8612)
+- Kruskal-Wallis p-value across AGE_GROUPs: p = 0.0199
+- Median value varies across AGE_GROUPs.
+- Interpretation: No significant correlation with AGE.
+
+Feature: RAMC
+- Correlation with AGE: r = 0.19 (p = 0.0088)
+- Kruskal-Wallis p-value across AGE_GROUPs: p = 0.1236
+- Median value increases across AGE_GROUPs.
+- Interpretation: Weak or complex correlation → may reflect non-linear aging effects.
+
+Feature: LLFATTHICK
+- Correlation with AGE: r = 0.03 (p = 0.6362)
+- Kruskal-Wallis p-value across AGE_GROUPs: p = 0.6134
+- Median value varies across AGE_GROUPs.
+- Interpretation: No significant correlation with AGE.
+
+Feature: BRMC
+- Correlation with AGE: r = -0.14 (p = 0.0495)
+- Kruskal-Wallis p-value across AGE_GROUPs: p = 0.1462
+- Median value varies across AGE_GROUPs.
+- Interpretation: Weak or complex correlation → may reflect non-linear aging effects.
+
+Step 8 - Accelerated Aging Detection:
+Total samples: 57
+Samples flagged as accelerated aging: 16
+Percent accelerated aging: 28.07%
+
+Moderate level of accelerated aging detected.
+
